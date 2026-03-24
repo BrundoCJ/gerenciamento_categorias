@@ -1,4 +1,4 @@
-package com.exercicios.crud.entity;
+package com.gerenciamento_de_categorias.demo.entity;
 
 import jakarta.persistence.*;
 
@@ -10,20 +10,24 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nome_categoria")
+    @Column(name = "nome_categoria", nullable = false)
     private String nome;
 
     @Column(name = "descricao_categoria")
     private String descricao;
 
-    public Categoria() {}
+    public Categoria() {
+    }
+
+    public Categoria(String nome, String descricao) {
+        this.nome = nome;
+        this.descricao = descricao;
+    }
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
-
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
-
     public String getDescricao() { return descricao; }
     public void setDescricao(String descricao) { this.descricao = descricao; }
 }
